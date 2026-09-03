@@ -1,0 +1,24 @@
+services:
+  backend:
+    build: ./backend
+    ports:
+      - "8000:8000"
+    environment:
+      - USE_MOCK_DATA=${USE_MOCK_DATA:-false}
+      - GCP_PROJECT_ID=${GCP_PROJECT_ID:-langx-production}
+      - BQ_REPORTS_DATASET=${BQ_REPORTS_DATASET:-dbt_reports}
+      - BQ_RAW_DATASET=${BQ_RAW_DATASET:-dqa_pipeline}
+      - CORS_ORIGINS=http://localhost:8080
+      - GOOGLE_APPLICATION_CREDENTIALS=/root/.config/gcloud/application_default_credentials.json
+    # Real BigQuery access needs credentials mounted into the container.
+    # Simplest local option: mount your gcloud ADC file read-only (after
+    # `gcloud auth application-default login` on the host).
+    volumes:
+      - ${HOME}/.config/gcloud/application_default_credentials.json:/root/.config/gcloud/application_default_credentials.json:ro
+
+  frontend:
+    build: ./frontend
+    ports:
+      - "8080:80"
+    depends_on:
+      - backend
