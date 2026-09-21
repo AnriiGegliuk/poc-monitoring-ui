@@ -1,4 +1,4 @@
-# DQA Monitoring — backend
+# DQA Monitoring backend logic
 
 Small FastAPI service that turns the `dbt_reports` / `dqa_pipeline` BigQuery
 datasets into the few endpoints the dashboard needs. No database of its own —

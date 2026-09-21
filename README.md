@@ -1,4 +1,4 @@
-# DQA Monitoring app
+# DQA Monitoring App
 
 Observability dashboard for the DQA data pipeline: replaces the Looker Studio
 "sessions overview" report and adds a unified **Issues** feed that Looker
