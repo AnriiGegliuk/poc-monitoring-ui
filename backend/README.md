@@ -36,7 +36,7 @@ for a demo or working offline), set `USE_MOCK_DATA=true` instead.
 | `GET /api/dialogs?...` | Paginated/sortable dialog table |
 | `GET /api/dialogs/{dialog_id}` | Single dialog: metadata, CEFR sub-scores, transcript, latency telemetry |
 
-## Adding a new issue source
+## Adding a new issue source (needs to be verified)
 
 Issues are normalized from whatever dbt report model detects them into one
 shape: `{id, type, severity, occurred_at, dialog_id, uid, scenario_id, title,
