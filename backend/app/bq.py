@@ -1,5 +1,3 @@
-"""Thin BigQuery query helper. Only used when USE_MOCK_DATA=false."""
-
 from functools import lru_cache
 
 from google.cloud import bigquery
